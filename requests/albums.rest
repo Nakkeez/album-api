@@ -1,0 +1,150 @@
+@baseurl = http://localhost:5001
+@api = /api/albums
+@query = ?user=admin
+
+@album_id=65b66c586a23e82287764f9e
+
+GET {{baseurl}}{{api}} HTTP/1.1
+
+### Get albums sorted by certain fields -> success
+GET {{baseurl}}{{api}}?sort=year,tracks HTTP/1.1
+
+### Get albums with certain fields only -> success
+GET {{baseurl}}{{api}}?fields=artist,title HTTP/1.1
+
+### Get albums filtered by year and track amount -> success
+GET {{baseurl}}{{api}}?numericFilters=year<=1977,tracks>8 HTTP/1.1
+
+### Search albums using a pattern for specific title -> success
+GET {{baseurl}}{{api}}?title=ja HTTP/1.1
+
+### Search albums using a pattern for specific artist -> success
+GET {{baseurl}}{{api}}?artist=iNk HTTP/1.1
+
+### Search albums using a pattern for specific genres -> success
+GET {{baseurl}}{{api}}?genre=po HTTP/1.1
+
+### Search albums using a pattern for title, artist, or genre -> success
+GET {{baseurl}}{{api}}?search=p HTTP/1.1
+
+### Get albums from specified range of years -> success
+GET {{baseurl}}{{api}}?releaseYearRange=1973-1978 HTTP/1.1
+
+### Get album with correct id -> success
+GET {{baseurl}}{{api}}/{{album_id}} HTTP/1.1
+
+### Get album with incorrect id -> fail
+GET {{baseurl}}{{api}}/65b3a8c7e053efa8b9c2ac12 HTTP/1.1
+
+### Get album with incorrectly formatted id -> fail
+GET {{baseurl}}{{api}}/65b3a8c7wrongid HTTP/1.1
+
+### Create album with correct body -> success
+POST {{baseurl}}{{api}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "artist": "Pink Floyd",
+    "title": "Dark side of the moon",
+    "year": 1973,
+    "genre": "Rock",
+    "tracks": 11
+}
+
+### Create album with incorrect body -> fail
+POST {{baseurl}}{{api}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Dark side of the moon",
+    "year": 1973,
+    "genre": "Rock",
+    "tracks": 11
+}
+
+### Create album with year than exceed current year -> fail
+POST {{baseurl}}{{api}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "artist": "Toto",
+    "title": "Toto IV",
+    "year": 2025,
+    "genre": "Pop",
+    "tracks": 10
+}
+
+### Create album with genre that is not defined and track amount more than 100 -> fail
+POST {{baseurl}}{{api}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "artist": "Steely Dan",
+    "title": "Aja",
+    "year": 1977,
+    "genre": "Jazz Rock",
+    "tracks": 711
+}
+
+### Create album with too artist name < 3 and too long title name > 100 -> fail
+POST {{baseurl}}{{api}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "artist": "M",
+    "title": "TesttestTesttestTesttestTesttestTesttestTesttestTesttest",
+    "year": 1959,
+    "genre": "Jazz",
+    "tracks": 5
+}
+
+### Update album with correct id -> success
+PUT {{baseurl}}{{api}}/{{album_id}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "artist": "Pink Floyd",
+    "title": "Dark side of the moon",
+    "year": 1973,
+    "genre": "Rock",
+    "tracks": 11
+}
+
+### Update album with incorrect id -> fail
+PUT {{baseurl}}{{api}}/65b3c2a7ff889bfafc837ec2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "artist": "Pink Floyd",
+    "title": "Dark side of the moon",
+    "year": 1973,
+    "genre": "Rock",
+    "tracks": 11
+}
+
+### Update album with incorrectly formatted id -> fail
+PUT {{baseurl}}{{api}}/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "artist": "Pink Floyd",
+    "title": "Dark side of the moon",
+    "year": 1973,
+    "genre": "Rock",
+    "tracks": 11
+}
+
+### Update album with body that does not got throught validation -> fail
+PUT {{baseurl}}{{api}}/{{album_id}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "artist": "Pi",
+    "title": "Dark side of the moon",
+    "year": 1742,
+    "genre": "Fuzz",
+    "tracks": -10
+}
+
+### Delete album with correct id -> success
+DELETE {{baseurl}}{{api}}/{{album_id}} HTTP/1.1

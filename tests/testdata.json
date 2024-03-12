@@ -1,0 +1,37 @@
+[
+  {
+    "artist": "Steely Dan",
+    "title": "Aja",
+    "year": 1977,
+    "genre": "Rock",
+    "tracks": 7
+  },
+  {
+    "artist": "Toto",
+    "title": "Toto IV",
+    "year": 1982,
+    "genre": "Pop",
+    "tracks": 10
+  },
+  {
+    "artist": "Gorillaz",
+    "title": "Demon Days",
+    "year": 2005,
+    "genre": "Hip hop",
+    "tracks": 15
+  },
+  {
+    "artist": "Pink Floyd",
+    "title": "Dark Side of The Moon",
+    "year": 1973,
+    "genre": "Rock",
+    "tracks": 11
+  },
+  {
+    "artist": "Miles Davis",
+    "title": "Kind of Blue",
+    "year": 1959,
+    "genre": "Jazz",
+    "tracks": 5
+  }
+]

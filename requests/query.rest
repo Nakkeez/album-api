@@ -1,0 +1,5 @@
+@baseurl = http://localhost:5001
+@api = /api/query
+
+### Query
+GET {{baseurl}}{{api}}?search=19

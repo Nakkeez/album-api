@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Albums</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav id="navbar">
+    <ul class="nav">
+      <div class="nav-item">Album API</div>
+      <div class="input-container">
+        <button id="logoutButton">Logout</button>
+        <form>
+          <input type="search" placeholder="Filter" id="searchField">
+        </form>
+      </div>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <form id="albumForm">
+      <h1>Add new album</h1>
+      <div class="new-album-form">
+        <div>
+          <input name="artist" type="text" id="artist" placeholder="Enter artist name..." />
+        </div>
+        <div>
+          <input name="title" type="text" id="title" placeholder="Enter album title..." />
+        </div>
+        <div>
+          <input name="year" type="text" id="year" placeholder="Enter release year..." />
+        </div>
+        <div>
+          <input name="genre" type="text" id="genre" placeholder="Enter album genre..." />
+        </div>
+        <div>
+          <input name="tracks" type="text" id="tracks" placeholder="Enter amount of tracks..." />
+        </div>
+        <button type="submit" class="submit-form-btn">Submit</button>
+      </div>
+    </form>
+
+    <h1>Albums</h1>
+    <div id="result" class="album-container"></div>
+
+    <div id="modalBackDrop"></div>
+  </div>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

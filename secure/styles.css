@@ -1,0 +1,118 @@
+body {
+  font-family: Tahoma, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.nav-item {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  background-color: #111;
+}
+
+input[type=search], input[type=text] {
+  border: none;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+input[type=search] {
+  padding: 6px;
+  width: 360px;
+  margin: 8px;
+}
+
+input[type=text] {
+  padding: 10px;
+  box-shadow: 1px 1px 3px;
+  margin-bottom: 12px;
+}
+
+.input-container {
+  display: flex;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.new-album-form {
+  text-align: center;
+}
+
+.submit-form-btn {
+  width: 180px;
+  padding: 12px;
+  background-color: lightgreen;
+}
+
+.delete-album-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10%;
+  padding: 8px;
+  background-color: #FF8282;
+  border-radius: 6px;
+}
+
+.album-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album {
+  position: relative;
+  width: 39%;
+  height: 240px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 4px 4px 6px black;
+}
+
+.album-data {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.error {
+  color: #ff0000;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+#logoutButton {
+  width: 5em;
+  margin: 0.2em;
+  background-color: lightskyblue;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+}
