@@ -34,7 +34,7 @@ app.use(session({
     collectionName: 'password-sessions'
   }),
   // Enable secure option when using https
-  // cookie: { secure: true, }
+  cookie: { secure: true, }
 }));
 
 app.use(passport.authenticate('session'));
