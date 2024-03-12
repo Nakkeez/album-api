@@ -33,7 +33,6 @@ app.use(session({
     mongoUrl: config.MONGODB_URI,
     collectionName: 'password-sessions'
   }),
-  // Enable secure option when using https
   cookie: {
     secure: 'auto',
     sameSite: 'none'
@@ -46,8 +45,7 @@ app.use('/api/albums', authMiddleware, albums);
 app.use('/api/query', authMiddleware, query);
 app.use('/api/register', register);
 app.use('/api/getAllAlbums', getAllAlbums);
-app.use('/', authMiddleware);
-app.use('/', express.static(path.join(__dirname, 'secure')));
+app.use('/', authMiddleware, express.static(path.join(__dirname, 'secure')));
 
 app.use(notFound);
 
